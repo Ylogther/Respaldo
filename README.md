@@ -27,9 +27,12 @@ Este entorno simula parte de las capacidades de plataformas, permitiendo observa
 
 Debes tener estas herramientas instaladas en tu sistema:
 
+
 ```bash
 sudo pacman -S wine winetricks firejail inotify-tools lsof figlet xdotool xterm zenity
+
 ```
+
 ## Instalación de dependencias
 
 Este script fue diseñado y probado principalmente en *Arch Linux*. Sin embargo, también puede funcionar en otras distribuciones si se instalan las herramientas necesarias.
