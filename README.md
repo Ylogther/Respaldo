@@ -1,12 +1,6 @@
-# wine seguridad
+# Smart EXE Launcher (Linux + Wine)
 
-este tutorial esta mas enfocado en usuarios de arch linux pero en otra distribución también funcionara
-
-Perfecto, aquí tienes un `README.md` listo para ponerlo en GitHub. Explica todo lo que hace el script, cómo usarlo y qué opciones ofrece. Puedes cambiar el nombre del proyecto si quieres.
-
----
-
-### `README.md`
+Este tutorial esta mas enfocado en usuarios de arch linux, pero en otra distribución también funcionara
 
 ```markdown
 # Smart EXE Launcher (Linux + Wine)
