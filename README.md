@@ -37,27 +37,26 @@ Este script fue diseñado y probado principalmente en *Arch Linux*. Sin embargo,
 ### En Arch Linux y derivados (Manjaro, EndeavourOS, etc.)
 Ejecuta:
 
-bash
-sudo pacman -S wine winetricks firejail inotify-tools lsof figlet xdotool xterm zenity
-
-
+```bash
+   sudo pacman -S wine winetricks firejail inotify-tools lsof figlet xdotool xterm zenity
+```
 ### En Debian, Ubuntu y derivados:
 Ejecuta:
 
-bash
+```bash
 sudo apt update
 sudo apt install wine winetricks firejail inotify-tools lsof figlet xdotool xterm zenity
-
+```
 
 ### En Fedora:
-bash
+```bash
 sudo dnf install wine winetricks firejail inotify-tools lsof figlet xdotool xterm zenity
-
+```
 
 ### En openSUSE:
-bash
+```bash
 sudo zypper install wine winetricks firejail inotify-tools lsof figlet xdotool xterm zenity
-
+```
 
 > *Nota*: Algunas distribuciones podrían usar diferentes nombres de paquetes o necesitar habilitar repositorios adicionales (como multilib para wine en Arch).
 
