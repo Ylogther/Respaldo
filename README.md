@@ -1,79 +1,83 @@
-# Smart EXE Launcher (Linux + Wine)
-
-Este tutorial esta mas enfocado en usuarios de arch linux, pero en otra distribución también funcionara
-
 ```markdown
-# Smart EXE Launcher (Linux + Wine)
+# SmartLauncher - Ejecuta archivos `.exe` con seguridad en Linux
 
-Este proyecto te permite ejecutar archivos `.exe` de Windows en Linux de forma **inteligente y segura**, usando Wine y Firejail.
+**Desarrollado por YLOGTHER**
 
-## ¿Qué hace?
+SmartLauncher es un script bash que permite ejecutar archivos `.exe` en Linux usando Wine, con un enfoque dual:
 
-Cuando lanzas un `.exe`, el script analiza el archivo y te da **dos opciones**:
+- **Modo Análisis Seguro** (tipo sandbox): para archivos sospechosos o desconocidos
+- **Modo Juego Persistente**: para aplicaciones confiables que quieras usar o jugar normalmente
 
-1. **Análisis seguro (modo sandbox)**  
-   Ejecuta el `.exe` en un entorno totalmente aislado:
-   - Sin acceso a internet
-   - Sin acceso a tus archivos personales
-   - Monitorea y registra los procesos que lanza
-   - Ideal para probar cracks, keygens, activadores, o archivos sospechosos
+Este entorno simula parte de las capacidades de plataformas, permitiendo observar procesos, cambios en archivos y posibles intentos de conexión de red.
 
-2. **Modo juego (entorno persistente)**  
-   Ejecuta el `.exe` con acceso total y guarda tus progresos:
-   - Útil para juegos o programas confiables
-   - Todo se guarda en un entorno separado (`~/.wine-juegos`)
-   - Compatible con la mayoría de juegos que funcionan con Wine
+---
 
-## ¿Qué requisitos tiene?
+## Características Principales
 
-- [Wine](https://wiki.archlinux.org/title/Wine)
-- [Firejail](https://firejail.wordpress.com/)
-- Bash y herramientas básicas de GNU/Linux
+- **Entorno aislado con Firejail** sin acceso a internet ni al resto del sistema
+- **Análisis heurístico** para detectar archivos potencialmente maliciosos
+- **Monitoreo en tiempo real** de procesos y archivos modificados
+- **Registros detallados (logs)** de cada ejecución
+- **Modo persistente opcional** para disfrutar de juegos de forma segura
+- **Compatible con Arch Linux y derivados**
 
-En Arch Linux puedes instalarlos con:
+---
 
-```bash
-sudo pacman -S wine firejail
-```
+## Requisitos
 
-## ¿Cómo usarlo?
-
-1. Clona este repositorio:
+Debes tener estas herramientas instaladas en tu sistema:
 
 ```bash
-git clone https://github.com/tuusuario/smart-exe-launcher.git
-cd smart-exe-launcher
-chmod +x smart_launcher.sh
+sudo pacman -S wine winetricks firejail inotify-tools lsof figlet xdotool xterm zenity
 ```
 
-2. Ejecuta un `.exe`:
+---
 
-```bash
-./smart_launcher.sh archivo.exe
-```
+## Cómo usarlo
 
-3. El script te mostrará:
-   - Hash del archivo
+1. Descarga el script:
+   ```bash
+   git clone https://github.com/Ylogther/ejecutar-wine-con-y-sin-entorno-seguro.git
+   cd ejecutar-wine-con-y-sin-entorno-seguro
+   chmod +x smart_launcher.sh
+   ```
+
+2. Ejecuta el script pasándole el archivo `.exe` que deseas analizar o jugar:
+   ```bash
+   ./smart_launcher.sh MiPrograma.exe
+   ```
+
+3. El script analizará el archivo:
+   - Hash SHA256
    - Tamaño
-   - Recomendación automática (análisis o juego)
-   - Un menú para que elijas
+   - Nombre sospechoso
+   - Tipo de ejecución recomendada
 
-## ¿Dónde guarda cosas?
+4. Elige una opción:
+   - **1**: Modo análisis seguro (con sandbox)
+   - **2**: Modo juego persistente
+   - **3**: Salir
 
-- **Logs de procesos** (si usas modo análisis): `~/wine-logs/`
-- **Juegos y programas confiables**: `~/.wine-juegos`
-- **Pruebas y entornos seguros**: entorno temporal aislado con Firejail
+---
 
-## Captura de pantalla 
+## Archivos y Directorios
 
-Agrega aquí una captura del menú si quieres.
+- Los logs se guardan en: `~/wine-logs/`
+- Prefijos Wine separados:
+  - Análisis seguro: `~/wine-sandbox`
+  - Juegos persistentes: `~/wine-juegos`
 
-## ¿Quieres más?
+---
 
-Puedes mejorarlo añadiendo:
-- Integración con VirusTotal (con API key)
-- Detección de conexiones de red
-- Detección de cambios en el sistema de archivos
-- Interfaz gráfica con Zenity o Yad
+## Nivel de Seguridad
 
+Este script aísla procesos usando Firejail, sin acceso a red y en un entorno privado. Sin embargo:
 
+> **Advertencia**: Aunque ofrece una buena capa de protección, no es infalible. Malware avanzado podría aprovechar vulnerabilidades en Wine o Firejail para escapar del entorno. Para máxima seguridad, usa una **máquina virtual** cuando analices archivos peligrosos.
+
+---
+
+## Autor
+
+**YLOGTHER**  
+Proyecto de análisis seguro para ejecutables de Windows en Linux
