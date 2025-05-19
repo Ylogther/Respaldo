@@ -1,4 +1,4 @@
-```markdown
+
 # SmartLauncher - Ejecuta archivos `.exe` con seguridad en Linux
 
 **Desarrollado por YLOGTHER**
